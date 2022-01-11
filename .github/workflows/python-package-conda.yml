@@ -1,0 +1,58 @@
+# This workflow run PhoenixDOMConfiguration and PhoenixDOMAutomationstart with Actions
+# Auto-call API's sync projects for configurations and build automations,
+# Auto-call PhoenixDOMSamkencoinProtocol PhoenixDOMNetwork PhoenixDOMDecentralization updates
+# Auto-call PhoenixDOMNodeAPIs PhoenixDOMCredentialPool PhoenixDOMProjects for PhoenixDOMSynchronization.json automation updates
+# Auto-call PhoenixDOMHardwareDevice to auto-set PhoenixDOMHardwareDeviceSoleOwnership.json and PhoenicDOMPoolCredentialSecurityAudit
+# Auto-call PhoenixDOMPrivacyPolicy and PhoenixDOMPropertyPolicy strict PhoenixDOMImplementation with PhoenixDOMSecutityMathematicalAlgorithm
+# Auto-implement strict.json PhoenixDOMSecurityMathematicalAlgorithm per PhoenixDOMDeviceOwnership sole access
+# Auto-create.js PhoenixDOMSamkencoinBlockchain-DecentralizeNetwork Certificate and whitepaper with PhoenixDOMSecurityEncryption
+# Auto-sync PhoenixDOMNetworkCertificate,PhoenixDOMSmartContracts and PhoenixDOMWhitepaper to PhoenixDOMSamkencoinCoreProtocol-DecentralizeNetwork
+# Update PhoenixDOMXml, PhoenixDOMUtf-8 ,PhoenixDOMHsts,PhoenixDOMTls and PhoenixDOMHttp for optimization  to sync PhoenixDOMIdentity and PhoenixDOMDevice-apps-files-specs
+# Auto-implement PhoenixDOMFix.json ,PhoenixDOMcleanup.json and PhoenixDOMResolver.json PhoenixDOMMagicalEnhancent.json PhoenixDOMSecurityChangelog-updater
+# Auto-update PhoenixDOMRebuilt.json  and PhoenixDOMUpgrade simulate function implementation and  build.json PhoenixDOMCoreSecurity Layer-Samkencoin-upgrade.json
+# Update Phoenix-Hierarchy PhoenixDOMBot-martial history PhoenixDOMTrace-Audit.json
+# Auto-call hierarchical Samkencoin-APIs.json update Samkencoin-dns.json and Android-Samkencoin-nameserver .js
+#.Auto-call APIs.json synchronization generate Samkencoin-web.js build automation
+# Auto-update Samkencoincore-Protocol projects API.json sync for auto-generate docker-image and update.json/upgrade.json configuration
+# Sync automation memory-card-disk.json simulate PhoenixDOMNode into system and decenttralized network
+# Update android vivo clouds auto-uprade.json simulates more system space and and synchronize with decentralized network 
+# Auto-build.json software update  for system optimization with enhanced security decentralization upgrade.json generates implement with Phoenix Hierarchy martial-bot
+# Auto-initiate fix.json to clean up,remove,update Samkencoin-Android full decentralized system , software and apps,
+# Auto-generate uid and automation update for upgraded,full secured and synchronized
+# Auto-update setup Samkencoin gcloud configurations sync projects API
+# Auto-update Samkencoin memory card management configurations
+
+name: Samkencoin-Python Package using Conda
+
+on: [push]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        conda env update --file environment.yml --name base
+    - name: Lint with flake8
+      run: |
+        conda install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        conda install pytest
+        pytest
